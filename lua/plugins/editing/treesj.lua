@@ -2,8 +2,17 @@
 return {
   "Wansmer/treesj",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  opt = { use_default_keymaps = true, },
+  -- opt = {
+  --   use_default_keymaps = true,
+  -- },
   keys = {
-    { "<leader>m", "<cmd>TSJToggle<cr>", desc = "Toggle split/join" },
+    { 
+      "<leader>m",
+      function(e)
+        require('treesj').toggle()
+      end,
+      mode = "n", 
+      desc = "Toggle split/join" 
+    },
   },
 }

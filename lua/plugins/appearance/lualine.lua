@@ -223,6 +223,7 @@ return {
     -- 
     -- Now don't forget to initialize lualine
     local config = {
+      options = { theme = "monokai-pro" },
       -- sections = {
       --   lualine_c = {
       --     -- ...other lualine components

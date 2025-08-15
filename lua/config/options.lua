@@ -4,6 +4,7 @@ local opt = vim.opt
 
 -- Line Number
 opt.number = true
+opt.relativenumber = true
 
 -- Indents
 opt.expandtab = true     -- タブをスペースに
@@ -21,4 +22,4 @@ opt.cursorline = true    -- カーソル行ハイライト
 -- System
 opt.clipboard = "unnamedplus" -- システムクリップボード連携
 opt.mouse = 'a'
-
+opt.swapfile = false
