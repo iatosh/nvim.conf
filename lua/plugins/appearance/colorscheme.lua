@@ -37,7 +37,7 @@ return {
       override = function(c)
         return {
           -- mini.files のハイライトグループ
-          MiniFilesNormal = { bg = c.sideBar.background, fg = c.sideBar.foreground },
+          MiniFilesNormal = { bg = c.sideBar.background, fg = c.editor.foreground },
           MiniFilesBorder = { bg = c.sideBar.background, fg = c.base.dimmed4 },
           MiniFilesBorderModified = { bg = c.sideBar.background, fg = c.base.yellow },
           MiniFilesCursorLine = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background },
@@ -104,30 +104,6 @@ return {
         }
       end,
     })
-
     vim.cmd([[colorscheme monokai-pro]])
-    
-    -- 追加: カラースキーム適用後に再度ハイライトを設定（確実に適用するため）
-    -- vim.defer_fn(function()
-    --   local c = require("monokai-pro.colorscheme")
-    --   
-    --   -- mini.files の背景を確実に設定
-    --   vim.api.nvim_set_hl(0, "MiniFilesNormal", { bg = c.sideBar.background, fg = c.sideBar.foreground })
-    --   vim.api.nvim_set_hl(0, "MiniFilesBorder", { bg = c.sideBar.background, fg = c.base.dimmed4 })
-    --   vim.api.nvim_set_hl(0, "MiniFilesDirectory", { fg = c.base.cyan, bold = true })
-    --   vim.api.nvim_set_hl(0, "MiniFilesFile", { fg = c.base.white })
-    --   
-    --   -- snacks picker の背景を確実に設定
-    --   vim.api.nvim_set_hl(0, "SnacksPickerNormal", { bg = c.editorSuggestWidget.background, fg = c.editorSuggestWidget.foreground })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerBorder", { bg = c.editor.background, fg = c.editorSuggestWidget.background })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerTitle", { bg = c.base.yellow, fg = c.base.black, bold = true })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerPrompt", { bg = c.editorSuggestWidget.background, fg = c.base.cyan })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerSelection", { bg = c.editorSuggestWidget.selectedBackground, fg = c.base.white, bold = true })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = c.base.blue, bold = true })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerPreview", { bg = c.editor.background, fg = c.editor.foreground })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerPreviewTitle", { bg = c.base.blue, fg = c.base.black, bold = true })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = c.base.cyan, bold = true })
-    --   vim.api.nvim_set_hl(0, "SnacksPickerFile", { fg = c.base.white })
-    -- end, 10)
   end,
 }

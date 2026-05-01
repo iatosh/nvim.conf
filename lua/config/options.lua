@@ -23,3 +23,4 @@ opt.cursorline = true    -- カーソル行ハイライト
 opt.clipboard = "unnamedplus" -- システムクリップボード連携
 opt.mouse = 'a'
 opt.swapfile = false
+opt.autoread = true              -- 外部変更を自動読み込み
