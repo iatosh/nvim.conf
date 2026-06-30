@@ -40,7 +40,7 @@ return {
           MiniFilesNormal = { bg = c.sideBar.background, fg = c.editor.foreground },
           MiniFilesBorder = { bg = c.sideBar.background, fg = c.base.dimmed4 },
           MiniFilesBorderModified = { bg = c.sideBar.background, fg = c.base.yellow },
-          MiniFilesCursorLine = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background },
+          MiniFilesCursorLine = { bg = c.list.activeSelectionBackground },
           MiniFilesDirectory = { fg = c.base.cyan },
           MiniFilesFile = { fg = c.base.white },
           MiniFilesTitle = { bg = c.base.yellow, fg = c.base.black, bold = true },

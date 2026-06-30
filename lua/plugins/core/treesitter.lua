@@ -1,43 +1,42 @@
 -- lua/plugins/core/treesitter.lua
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+  lazy = false,
   build = ":TSUpdate",
-  event = { "BufReadPost", "BufNewFile" },
   config = function()
-    require("nvim-treesitter.configs").setup({
-      -- 自動インストールする言語
-      ensure_installed = {
-        "bash",
-        "bibtex",
-        "csv",
-        "lua",
-        "tmux",
-        "vim",
-        "vimdoc",
-        "javascript",
-        "typescript",
-        "python",
-        "rust",
-        "go",
-        "markdown",
-        "markdown_inline",
-        "html",
-        "css",
-        "json",
-        "yaml",
-      },
-      
-      -- 自動インストールを有効化
-      auto_install = true,
-      
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      
-      indent = {
-        enable = true,
-      },
+    require("nvim-treesitter").install({
+      "bash",
+      "bibtex",
+      "csv",
+      "lua",
+      "tmux",
+      "vim",
+      "vimdoc",
+      "javascript",
+      "typescript",
+      "python",
+      "rust",
+      "go",
+      "markdown",
+      "markdown_inline",
+      "html",
+      "css",
+      "json",
+      "yaml",
+    })
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+      -- Highlighting 
+      pcall(vim.treesitter.start)
+  
+      -- Folds
+      -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      -- vim.wo[0][0].foldmethod = "expr"
+
+      -- Indentation
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
     })
   end,
 }
