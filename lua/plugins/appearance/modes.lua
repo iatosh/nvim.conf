@@ -1,10 +1,11 @@
--- lua/plugins/appearance/colorscheme.lua
+-- lua/plugins/appearance/modes.lua
 return {
   "mvllow/modes.nvim",
-  events = "VeryLazy",
-  opts = {
+  event = "VeryLazy",
+  -- opts を関数にして VeryLazy 時点で評価する (静的テーブルだと vim.g.terminal_bg が未設定で黒と混ぜてしまい、現在行が真っ黒になる)
+  opts = function() return {
 	  colors = {
-		  bg = "", -- Optional bg param, defaults to Normal hl group
+		  bg = vim.g.terminal_bg, -- 透過bgだとNormalから取れないので端末の実bgを使う (colorscheme.luaが設定)
 		  copy = "#f5c359",
 		  delete = "#c75c6a",
 		  change = "#c75c6a", -- Optional param, defaults to delete
@@ -35,5 +36,5 @@ return {
 	  -- or enable with prefix "!" if otherwise disabled (please PR common patterns)
 	  -- Can also be a function fun():boolean that disables modes highlights when true
 	  ignore = { "NvimTree", "TelescopePrompt", "!minifiles" }
-  }
+  } end,
 }

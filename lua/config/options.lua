@@ -20,6 +20,7 @@ opt.smartcase = true     -- 大文字含む時は区別
 -- Appearance
 opt.termguicolors = true -- True Color
 opt.cursorline = true    -- カーソル行ハイライト
+opt.fillchars:append({ eob = " " }) -- バッファ末尾の ~ を表示しない
 
 -- System
 -- SSH先ではxclip等のクリップボードプロバイダが無く unnamedplus が機能しない (no clipboard provider) ため
