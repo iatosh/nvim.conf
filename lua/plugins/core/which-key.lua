@@ -2,7 +2,7 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opt = {
+  opts = {
     win = {
       border = "rounded",
     },

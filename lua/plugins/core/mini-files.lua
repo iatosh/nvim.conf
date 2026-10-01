@@ -19,7 +19,7 @@ return {
       },
       options = {
         permanent_delete = false,
-        use_as_default_exploror = true,
+        use_as_default_explorer = true,
       },
     })
 
