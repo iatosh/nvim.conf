@@ -10,6 +10,8 @@ opt.relativenumber = true
 opt.expandtab = true     -- タブをスペースに
 opt.shiftwidth = 2       -- インデント幅
 opt.tabstop = 2          -- タブ幅
+opt.wrap = true            -- 長い行は折り返す (横スクロールさせない)
+opt.linebreak = true       -- 単語の途中で折り返さない
 opt.breakindent = true
 opt.breakindentopt = "shift:2"
 
