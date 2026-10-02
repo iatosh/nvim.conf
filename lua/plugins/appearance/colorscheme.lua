@@ -14,6 +14,8 @@ local QUERY_TIMEOUT_MS = 1500
 return {
   "https://gitlab.com/kylesower/termcolors.nvim",
   name = "termcolors.nvim",
+  -- term_colors() の差し替えなど内部実装に依存しているので、更新で壊れないよう固定する (lazy-lock.json は gitignore)
+  commit = "36843c0f37700b803d1ef01eb01efcd1cb383363",
   lazy = false,
   priority = 1000,
   config = function()
@@ -205,6 +207,7 @@ return {
       set_hl("NotifyBackground", { fg = p.fg, bg = p.bg })
 
       vim.g.terminal_bg = p.bg -- modes.nvim等、背景色が必要なプラグイン用
+      vim.g.terminal_black = p.black -- lualineのピル上の文字色など、明るい背景に載せる暗色
     end
 
     local function save_cache()
