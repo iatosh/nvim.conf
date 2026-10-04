@@ -9,6 +9,8 @@ return {
     local lualine = require("lualine")
     local pill_left = vim.fn.nr2char(0xe0b6) --
     local pill_right = vim.fn.nr2char(0xe0b4) --
+    -- ピル内の左右余白(セル数)。0 だと詰まりすぎる。端末は1セル単位なので0.5は不可
+    local pill_padding = { left = 1, right = 1 }
 
     ---@return string?
     local function fg_of(name)
@@ -45,6 +47,11 @@ return {
       }
     end
 
+    -- 標準の "location" は %3l:%-2v で行・列を固定幅に揃えるため、ピルの中に余白ができる。内容の幅にぴったり合わせる
+    local function location()
+      return ("%d:%d"):format(vim.fn.line("."), vim.fn.virtcol("."))
+    end
+
     local function setup()
       lualine.setup({
         options = {
@@ -54,16 +61,16 @@ return {
           globalstatus = false,
         },
         sections = {
-          lualine_a = { { "mode", separator = { left = pill_left, right = pill_right }, padding = { left = 1, right = 1 } } },
+          lualine_a = { { "mode", separator = { left = pill_left, right = pill_right }, padding = pill_padding } },
           lualine_b = { "branch", "diff" },
           lualine_c = { { "filename", path = 1 } },
           lualine_x = { "diagnostics", "filetype" },
           lualine_y = { "progress" },
-          lualine_z = { { "location", separator = { left = pill_left, right = pill_right }, padding = { left = 1, right = 1 } } },
+          lualine_z = { { location, separator = { left = pill_left, right = pill_right }, padding = pill_padding } },
         },
         inactive_sections = {
           lualine_c = { { "filename", path = 1 } },
-          lualine_x = { "location" },
+          lualine_x = { location },
         },
       })
     end
