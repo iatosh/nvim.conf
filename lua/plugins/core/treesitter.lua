@@ -10,7 +10,6 @@ return {
       "bibtex",
       "csv",
       "lua",
-      "tmux",
       "vim",
       "vimdoc",
       "javascript",
